@@ -1,5 +1,7 @@
 package com.xuxiang.other.presenter;
 
+import android.content.Context;
+
 import com.xuxiang.other.base.BasePresenter;
 import com.xuxiang.other.bean.AppUpdateBean;
 import com.xuxiang.other.model.AppupdateImpl;
@@ -15,7 +17,7 @@ public class AppUpdatePresenter extends BasePresenter<IUpdateView> {
     }
 
     public void getAppUpdateInfo(String version) {
-        mvpView.showLoading();
+        mvpView.showLoading((Context) mvpView);
         impl.getUpdateInfo(version, new HttpCallBack<AppUpdateBean>() {
             @Override
             public void onSuccess(AppUpdateBean appUpdateBean) {

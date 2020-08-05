@@ -1,3 +1,4 @@
+include ':xxlib'
 include ':other'
 include ':app'
 rootProject.name = "commonmvp"

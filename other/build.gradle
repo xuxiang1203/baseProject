@@ -27,15 +27,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-
-    //Rxjava
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
-    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
-    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
-    //网络请求日志拦截
-    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.0'
-    //rxlifecycle
-    implementation 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
+    implementation project(":xxlib")
+    //butterknife 控件初始化
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor "com.jakewharton:butterknife-compiler:10.0.0"
+    //Glide
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 }

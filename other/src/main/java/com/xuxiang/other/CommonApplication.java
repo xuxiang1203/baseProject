@@ -3,6 +3,7 @@ package com.xuxiang.other;
 import android.app.Application;
 
 public class CommonApplication extends Application {
+
     private static CommonApplication instance;
 
     public static CommonApplication getInstance() {

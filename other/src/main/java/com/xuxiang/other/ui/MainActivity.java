@@ -1,33 +1,36 @@
 package com.xuxiang.other.ui;
 
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xuxiang.other.BuildConfig;
 import com.xuxiang.other.R;
+import com.xuxiang.other.app.GlideApp;
+import com.xuxiang.other.base.ActivityInfo;
 import com.xuxiang.other.base.BaseActivity;
 import com.xuxiang.other.bean.AppUpdateBean;
 import com.xuxiang.other.presenter.AppUpdatePresenter;
 import com.xuxiang.other.ui.view.IUpdateView;
 
+import butterknife.BindView;
 
+@ActivityInfo(layout = R.layout.activity_main)
 public class MainActivity extends BaseActivity implements IUpdateView {
 
-    private TextView tvVersion;
+    @BindView(R.id.version)
+    TextView tvVersion;
+    @BindView(R.id.img)
+    ImageView img;
 
     private AppUpdatePresenter updatePresenter;
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_main;
-    }
-
-    @Override
     protected void initView() {
-        tvVersion = findViewById(R.id.version);
         updatePresenter = new AppUpdatePresenter();
         updatePresenter.attachView(this);
 
         updatePresenter.getAppUpdateInfo(BuildConfig.VERSION_NAME);
+        GlideApp.with(this).load(R.mipmap.ic_launcher).into(img);
     }
 
 
@@ -39,16 +42,6 @@ public class MainActivity extends BaseActivity implements IUpdateView {
     @Override
     public void onError(int code, String errorMsg) {
 
-    }
-
-    @Override
-    public void showLoading() {
-        tvVersion.setText("加载中");
-    }
-
-    @Override
-    public void hideLoading() {
-        tvVersion.setText("加载完成");
     }
 
     @Override
