@@ -1,0 +1,3 @@
+include ':other'
+include ':app'
+rootProject.name = "commonmvp"
