@@ -1,8 +1,4 @@
 package com.xuxiang.other.base;
-
-import android.content.Context;
-
-import com.xuxiang.other.CommonApplication;
 import com.xuxiang.xxlib.dialog.LoadingUtil;
 
 public interface BaseView<T> {
@@ -11,11 +7,15 @@ public interface BaseView<T> {
 
     void onError(int code, String errorMsg);
 
-    default void showLoading(Context context) {
-        LoadingUtil.showLoading(context);
-    };
+    default void showLoading(Object context) {
+        if(context instanceof BaseActivity) {
+            LoadingUtil.showLoading((BaseActivity)context);
+        } else if(context instanceof BaseFragment){
+            LoadingUtil.showLoading(((BaseFragment) context).getContext());
+        }
+    }
 
     default void hideLoading() {
         LoadingUtil.hide();
-    };
+    }
 }
