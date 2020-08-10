@@ -48,7 +48,6 @@ dependencies {
     api 'androidx.constraintlayout:constraintlayout:1.1.3'
     //轮播banner
     api 'com.youth.banner:banner:2.0.4'
-    api 'com.github.ittianyu:BottomNavigationViewEx:2.0.4'
     //头部横向导航
     api 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     //json转换

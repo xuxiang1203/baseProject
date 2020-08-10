@@ -30,7 +30,7 @@ import java.io.IOException;
 public class FileUtils {
     private static final String ICON_DIR = "icon";
     private static final String FILE_DIR = "file";
-    private static final String APP_STORAGE_ROOT = "FSLG";
+    private static final String APP_STORAGE_ROOT = "MVP";
 
     /**
      * 保存文件到相册。
